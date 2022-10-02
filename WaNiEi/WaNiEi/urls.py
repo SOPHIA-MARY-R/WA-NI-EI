@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('translate/', include('Translate.urls')),
+    path('fileupload/', include('FileUpload.urls')),
 ]

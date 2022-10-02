@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Upload</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form method="post" action="{% url 'upload_multiple_files' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input style="margin: auto" type="file" name="files" autocomplete="off" required multiple accept=".txt">
+            <input type="submit" value="Upload" class="button">
+        </form>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
