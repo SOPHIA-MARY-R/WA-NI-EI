@@ -9,12 +9,11 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <form method="post" action="{% url 'upload_multiple_files' %}" enctype="multipart/form-data">
+        <form method="post" action="{% url 'upload_file' %}" enctype="multipart/form-data">
             {% csrf_token %}
-            <input style="margin: auto" type="file" name="files" autocomplete="off" required multiple accept=".txt">
+            <input style="margin: auto" type="file" name="FILE" autocomplete="off" required accept=".txt">
             <input type="submit" value="Upload" class="button">
         </form>
-        
         <script src="" async defer></script>
     </body>
 </html>
