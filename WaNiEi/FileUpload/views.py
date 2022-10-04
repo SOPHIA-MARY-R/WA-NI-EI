@@ -28,8 +28,14 @@ def upload_file(request):
                 translated=translator.translate(line).text
                 t.write(translated)
             t.close()
-            File(title=mytranslatedfile, file=mytranslatedfile, created_at=datetime.datetime.now()).save()
-            return render(request, 'FileUpload/upload.html')
+            obj=File()
+            obj.title=mytranslatedfile
+            obj.file=mytranslatedfile
+            obj.created_at=datetime.datetime.now()
+            obj.save()
+            print(obj.file.url)
+            #File(title=mytranslatedfile, file=mytranslatedfile, created_at=datetime.datetime.now()).save()
+            return render(request, 'FileUpload/download.html', {'object':obj})
         else:
            return HttpResponse('Upload unsuccessful!') 
            #return redirect(request, 'FileUpload/translate')
