@@ -106,5 +106,8 @@
                 <br>
                 <a href="{% url 'register' %}" style="text-decoration: none; color:white; font-weight: bold;">     Don't have account? sign up</a>
             </form>
+            {% for message in messages %}
+				<p id="messages">{{message}}</p>
+			{% endfor %}		
     </body>
 </html>

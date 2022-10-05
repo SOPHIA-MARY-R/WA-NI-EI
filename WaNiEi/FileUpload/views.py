@@ -13,7 +13,7 @@ def upload_file(request):
     if request.method=='POST':
         if request.FILES['FILE']:
             myfile=request.FILES['FILE']
-            File(title=myfile.name, file=myfile, created_at=datetime.datetime.now()).save()
+            File(title=myfile.name, file=myfile, created_at=datetime.datetime.now(), file_of=request.user).save()
             myfilepath='D:/INDIGILAB_WORKSHOP/WaNiEi/WaNiEi/Files/'+myfile.name
             mytranslatedfilepath='D:/INDIGILAB_WORKSHOP/WaNiEi/WaNiEi/Files/translated_'+myfile.name
             mytranslatedfile='translated_'+myfile.name
@@ -32,8 +32,8 @@ def upload_file(request):
             obj.title=mytranslatedfile
             obj.file=mytranslatedfile
             obj.created_at=datetime.datetime.now()
+            obj.file_of=request.user
             obj.save()
-            print(obj.file.url)
             #File(title=mytranslatedfile, file=mytranslatedfile, created_at=datetime.datetime.now()).save()
             return render(request, 'FileUpload/download.html', {'object':obj})
         else:

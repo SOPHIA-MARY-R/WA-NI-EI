@@ -33,6 +33,6 @@ def Login(request):
             #return redirect('index')
             return HttpResponse('Successfully logged in!!')
         else:
-            messages.info(request, 'account done not exit plz sign in')
+            messages.info(request, 'account done not exit plz sign up')
     form = AuthenticationForm()
     return render(request, 'authentication/login.html', {'form':form, 'title':'log in'})
