@@ -19,8 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', include('Authentication.urls')),
     path('admin/', admin.site.urls),
-    path('auth/', include('Authentication.urls')),
     path('fileupload/', include('FileUpload.urls')),
 ]
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

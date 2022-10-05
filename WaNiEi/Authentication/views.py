@@ -8,6 +8,9 @@ from Authentication.forms import UserRegisterForm
 from datetime import date
 # Create your views here.
 
+def welcome(request):
+    return render(request, 'welcome.html')
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
