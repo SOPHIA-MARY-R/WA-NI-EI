@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.conf import settings
 from Authentication.forms import UserRegisterForm
 from datetime import date
+from FileUpload.models import File
 # Create your views here.
 
 def welcome(request):
@@ -36,5 +37,3 @@ def Login(request):
     form = AuthenticationForm()
     return render(request, 'authentication/login.html', {'form':form, 'title':'log in'})
 
-def home(request):
-    return render(request, 'home.html')

@@ -100,7 +100,7 @@
 <div class="dropdown-content">
   <a href="#">e-mail</a>
   <a href="#">Change Password</a>
-  <a href="#">History</a>
+  <a href="{% url 'history' %}">History</a>
   <a href="{% url 'logout' %}">Logout</a>
   </div>
 </div>
@@ -135,7 +135,7 @@
 <div>
 <img src="https://cdn-icons-png.flaticon.com/128/4021/4021726.png" width="50" height="60"><br><br><br>
 <!--<button  class="c" >TEXT</button>-->
-<a href="{% url 'upload_file' %}" class="links">TEXT</a>
+<a href="{% url 'upload' %}" class="links">TEXT</a>
 </div>
 </div>
 </center>

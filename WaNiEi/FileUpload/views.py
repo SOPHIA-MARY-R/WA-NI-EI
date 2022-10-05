@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import datetime
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from googletrans import Translator
 
 from FileUpload.models import File
@@ -41,3 +41,15 @@ def upload_file(request):
            #return redirect(request, 'FileUpload/translate')
     else:
          return render(request, 'FileUpload/upload.html')
+
+def home(request):
+    return render(request, 'home.html')
+
+def history(request):
+    FilesList=File.objects.filter(file_of=request.user)
+    return render(request, 'FileUpload/history.html', {'FilesList':FilesList})
+
+def delete(request, id):
+    FileList = File.objects.get(id=id)
+    FileList.delete()
+    return redirect('/fileupload/history')

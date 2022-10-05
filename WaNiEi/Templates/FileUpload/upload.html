@@ -26,7 +26,7 @@
           </head>
     </head>
     <body>
-        <form class="form" method="post" action="{% url 'upload_file' %}" enctype="multipart/form-data">
+        <form class="form" method="post" action="{% url 'upload' %}" enctype="multipart/form-data">
             {% csrf_token %}
             <input style="margin: auto" type="file" name="FILE" autocomplete="off" class="file-upload-field" required accept=".txt">
             <input type="submit" value="Upload" class="button">
