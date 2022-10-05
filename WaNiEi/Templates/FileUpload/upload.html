@@ -7,13 +7,29 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <head>
+            <title> How to make custom file upload button in html | css & javascript</title>
+            <link rel="stylesheet" href="style.css">
+            <style>
+              body {
+                margin: 0;
+                padding: 0;
+                font-family: "Lato", sans-serif;
+                background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);
+                background: linear-gradient(to right, #514A9D, #24C6DC);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+              }
+            </style>
+          </head>
     </head>
     <body>
-        <form method="post" action="{% url 'upload_file' %}" enctype="multipart/form-data">
+        <form class="form" method="post" action="{% url 'upload_file' %}" enctype="multipart/form-data">
             {% csrf_token %}
-            <input style="margin: auto" type="file" name="FILE" autocomplete="off" required accept=".txt">
+            <input style="margin: auto" type="file" name="FILE" autocomplete="off" class="file-upload-field" required accept=".txt">
             <input type="submit" value="Upload" class="button">
-        </form>
-        <script src="" async defer></script>
+          </form>
     </body>
 </html>

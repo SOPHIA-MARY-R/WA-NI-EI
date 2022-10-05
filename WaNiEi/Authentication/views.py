@@ -30,9 +30,11 @@ def Login(request):
         password = request.POST['password']
         user = authenticate(request, username = username, password = password)
         if user is not None:
-            #return redirect('index')
-            return HttpResponse('Successfully logged in!!')
+            return redirect('home')
         else:
             messages.info(request, 'account done not exit plz sign up')
     form = AuthenticationForm()
     return render(request, 'authentication/login.html', {'form':form, 'title':'log in'})
+
+def home(request):
+    return render(request, 'home.html')

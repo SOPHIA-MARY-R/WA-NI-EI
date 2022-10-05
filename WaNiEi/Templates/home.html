@@ -35,13 +35,13 @@
     .b:hover{
       box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
     }
-    .c:hover {
+    .links:hover {
       box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
     }
     .menu {
       display: none;
     }
-   button {
+   button, .links{
   background-color: #666F77; /* Green */
   border: none;
   color: white;
@@ -96,12 +96,12 @@
 </center>
     <div class="w3-col s3 w3-display-right  w3-center">
   <div class="dropdown"> 
-<button class="w3-button w3-block w3-black">USERNAME <i class='far fa-user-circle' style='color:red'></i> </button>
+<button class="w3-button w3-block w3-black"> {{ request.user.username }} <i class='far fa-user-circle' style='color:red'></i> </button>
 <div class="dropdown-content">
   <a href="#">e-mail</a>
   <a href="#">Change Password</a>
   <a href="#">History</a>
-  <a href="#">Logout</a>
+  <a href="{% url 'logout' %}">Logout</a>
   </div>
 </div>
     </div>
@@ -134,7 +134,8 @@
 </div>&nbsp&nbsp&nbsp
 <div>
 <img src="https://cdn-icons-png.flaticon.com/128/4021/4021726.png" width="50" height="60"><br><br><br>
-<button  class="c" >TEXT</button>
+<!--<button  class="c" >TEXT</button>-->
+<a href="{% url 'upload_file' %}" class="links">TEXT</a>
 </div>
 </div>
 </center>
