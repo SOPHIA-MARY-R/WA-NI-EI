@@ -10,7 +10,7 @@ from FileUpload.models import File
 # Create your views here.
 
 def welcome(request):
-    return render(request, 'welcome.html')
+    return render(request, 'authentication/welcome.html')
 
 def register(request):
     if request.method == 'POST':

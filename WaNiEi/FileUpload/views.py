@@ -43,7 +43,7 @@ def upload_file(request):
          return render(request, 'FileUpload/upload.html')
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'fileupload/home.html')
 
 def history(request):
     FilesList=File.objects.filter(file_of=request.user)
