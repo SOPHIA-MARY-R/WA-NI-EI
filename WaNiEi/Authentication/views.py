@@ -23,7 +23,7 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegisterForm()
-    return render(request, 'authentication/register.html', {'form': form, 'title':'reqister here'})
+    return render(request, 'authentication/register.html', {'form': form, 'title':'register here'})
 
 def Login(request):
     if request.method == 'POST':
@@ -31,9 +31,11 @@ def Login(request):
         password = request.POST['password']
         user = authenticate(request, username = username, password = password)
         if user is not None:
+            form = login(request, user)
+            #print(user)
             return redirect('home')
         else:
-            messages.info(request, 'account done not exit plz sign up')
+            messages.error(request, 'Invalid credentials')
     form = AuthenticationForm()
     return render(request, 'authentication/login.html', {'form':form, 'title':'log in'})
 
