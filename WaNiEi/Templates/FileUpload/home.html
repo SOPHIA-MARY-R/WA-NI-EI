@@ -107,7 +107,7 @@
   <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
       <div class="w3-col s3">
-        <a href="#" class="w3-button w3-block w3-black">HOME</a>
+        <a href="{% url 'home' %}" class="w3-button w3-block w3-black"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
       </div>
       <center>
         <div class="w3-col s3">
@@ -119,10 +119,10 @@
           <button class="w3-button w3-block w3-black"> {{ request.user.username }} <i class='far fa-user-circle'
               style='color:red'></i> </button>
           <div class="dropdown-content">
-            <a href="{% url 'profile' %}">Profile</a>
-            <a href="#">Change Password</a>
-            <a href="{% url 'history' %}">History</a>
-            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'profile' %}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+            <!--<a href="#">Change Password</a>-->
+            <a href="{% url 'history' %}"><i class="fa fa-history" aria-hidden="true"></i> History</a>
+            <a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
           </div>
         </div>
       </div>

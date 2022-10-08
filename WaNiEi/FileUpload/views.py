@@ -10,28 +10,37 @@ def upload_file(request):
     if request.method=='POST':
         if request.FILES['FILE']:
             myfile=request.FILES['FILE']
-            File(title=myfile.name, file=myfile, created_at=datetime.datetime.now(), file_of=request.user).save()
+            #File(title=myfile.name, file=myfile, created_at=datetime.datetime.now(), file_of=request.user).save()
+            objJ=File()
+            objJ.title=myfile.name
+            objJ.file=myfile
+            objJ.created_at=datetime.datetime.now()
+            objJ.file_of=request.user
+            objJ.save()
             myfilepath='D:/INDIGILAB_WORKSHOP/WaNiEi/WaNiEi/Files/'+myfile.name
             mytranslatedfilepath='D:/INDIGILAB_WORKSHOP/WaNiEi/WaNiEi/Files/translated_'+myfile.name
             mytranslatedfile='translated_'+myfile.name
-            string=''
+            japContent=''
             with open(myfilepath, 'r', encoding='utf-8') as f:
-                for line in f: string+=line
+                for line in f: japContent+=line
             f.close()
-            Lines=string.split(' ')
+            Lines=japContent.split(' ')
             t=open(mytranslatedfilepath, 'w')
+            engContent=''
             for line in Lines:
                 translator=Translator()
                 translated=translator.translate(line).text
+                engContent+=translated
                 t.write(translated)
             t.close()
-            obj=File()
-            obj.title=mytranslatedfile
-            obj.file=mytranslatedfile
-            obj.created_at=datetime.datetime.now()
-            obj.file_of=request.user
-            obj.save()
-            return render(request, 'FileUpload/download.html', {'object':obj})
+            objE=File()
+            objE.title=mytranslatedfile
+            objE.file=mytranslatedfile
+            objE.created_at=datetime.datetime.now()
+            objE.file_of=request.user
+            objE.save()
+
+            return render(request, 'FileUpload/download.html', {'objE':objE, 'objJ':objJ, 'japContent':japContent, 'engContent': engContent})
         else:
            return HttpResponse('Upload unsuccessful!') 
     else:

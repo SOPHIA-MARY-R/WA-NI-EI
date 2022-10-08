@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -14,4 +14,74 @@
         <script src="" async defer></script>
         <a href="{% url 'home'%}">Back to home</a>
     </body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Lato", sans-serif;
+            background: url("{% static 'bg.jpg' %}") no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-size: 15px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            margin: 200px;
+        }
+
+        .tab-content {
+            margin: 10px;
+            padding: 15px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Original</a></li>
+            <li><a data-toggle="tab" href="#menu1">Translated</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <p>{{japContent}}</p>
+                <div class="text-center">
+                    <!--<button type="button" class="btn btn-primary">Download</button>-->
+                    <a href="{{objJ.file.url}}" class="btn btn-primary" download>Download</a>
+                </div>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+                <p>{{engContent}}</p>
+                <div class="text-center">
+                    <!--<button type="button" class="btn btn-primary">Download</button>-->
+                    <a href="{{objE.file.url}}" class="btn btn-primary" download>Download</a>
+                </div>
+            </div>
+            <a href="{% url 'home'%}">Back to home</a>
+        </div>
+    </div>
+
+</body>
+
 </html>
