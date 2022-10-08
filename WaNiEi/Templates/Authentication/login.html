@@ -22,7 +22,7 @@
                 margin: 60px auto 0;
                 background: rgba(0, 0, 0, 0, 6);
                 text-align: center;
-                padding: 35px;
+                padding: 45px;
                 border: 3px solid #fff;
                 border-radius: 70px 0 70px 0;
             }
@@ -42,7 +42,7 @@
                 margin-border: 15px;
                 background: white;
                 color: black;
-                padding: 4px 9px;
+                padding: 4px 4px;
             }
     
             .box p {
@@ -92,6 +92,14 @@
             <h2>Login form</h2>
             <form method="POST">
                 {% csrf_token %}
+                {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+				    <p id="messages" style="color:red">{{message}}</p>
+                {% endif %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+				    <p id="messages" style="color:green">{{message}}</p>
+                {% endif %}
+			    {% endfor %}
                 <p>Username </p>
                 <!--<input type="text" name="" id="">-->
                 {{form.username}}
@@ -106,8 +114,7 @@
                 <br>
                 <a href="{% url 'register' %}" style="text-decoration: none; color:white; font-weight: bold;">     Don't have account? sign up</a>
             </form>
-            {% for message in messages %}
-				<p id="messages">{{message}}</p>
-			{% endfor %}		
+            	
+        </div>	
     </body>
 </html>
