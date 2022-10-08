@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Lato", sans-serif;
+      background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);
+      background: linear-gradient(to right, #514A9D, #24C6DC);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    #content {
+      padding: 60px 60px;
+      background-color: white;
+    }
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      padding: 14px 14px;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .card_container {
+      padding: 2px 16px;
+      background: white;
+      border-radius: 0px 0px 20px 20px;
+      text-align: center;
+    }
+
+    #details {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  {% load static %}
+  <div class="card">
+    <img src="{% static 'user.jpg' %}" alt="Avatar"
+      style="width: 250px; height: 250px; border-radius: 20px 20px 0px 0px; background: transparent">
+    <div class="card_container">
+      <h1><b>{{ user }}</b></h1>
+      <p id="details">{{ user.email }}</p>
+      <p id="details">You have {{Len}} files</p>
+    </div>
+  </div>
+</body>
+
+</html>

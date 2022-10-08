@@ -119,7 +119,7 @@
           <button class="w3-button w3-block w3-black"> {{ request.user.username }} <i class='far fa-user-circle'
               style='color:red'></i> </button>
           <div class="dropdown-content">
-            <a href="#">Profile</a>
+            <a href="{% url 'profile' %}">Profile</a>
             <a href="#">Change Password</a>
             <a href="{% url 'history' %}">History</a>
             <a href="{% url 'logout' %}">Logout</a>

@@ -5,9 +5,6 @@ from django.shortcuts import redirect, render
 from googletrans import Translator
 
 from FileUpload.models import File
-#from .forms import UploadFileForm
-#from django.views.generic.edit import CreateView
-#from django.views.generic.edit import FormView
 
 def upload_file(request):
     if request.method=='POST':
@@ -34,11 +31,9 @@ def upload_file(request):
             obj.created_at=datetime.datetime.now()
             obj.file_of=request.user
             obj.save()
-            #File(title=mytranslatedfile, file=mytranslatedfile, created_at=datetime.datetime.now()).save()
             return render(request, 'FileUpload/download.html', {'object':obj})
         else:
            return HttpResponse('Upload unsuccessful!') 
-           #return redirect(request, 'FileUpload/translate')
     else:
          return render(request, 'FileUpload/upload.html')
 
@@ -53,3 +48,7 @@ def delete(request, id):
     FileList = File.objects.get(id=id)
     FileList.delete()
     return redirect('/fileupload/history')
+
+def profile(request):
+    Len=File.objects.filter(file_of=request.user).count()
+    return render(request, 'FileUpload/profile.html', {'Len': Len})

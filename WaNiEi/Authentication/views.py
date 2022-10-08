@@ -32,7 +32,6 @@ def Login(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             form = login(request, user)
-            #print(user)
             return redirect('home')
         else:
             messages.error(request, 'Invalid credentials')
