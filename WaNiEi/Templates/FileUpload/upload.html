@@ -22,14 +22,40 @@
                 justify-content: center;
                 min-height: 100vh;
               }
+              .button {
+                background-color: blueviolet;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 3px;
+                border: none;
+                font-family: "Lato", sans-serif;
+              }
+              .browse{
+                background-color: blueviolet;
+                color: white;
+                border: none;
+                cursor: pointer;
+                display:block;
+                padding: 14px 30px;
+                border-radius: 3px;
+                text-align: center;
+                font-size: 16px;
+              }
             </style>
           </head>
     </head>
     <body>
         <form class="form" method="post" action="{% url 'upload' %}" enctype="multipart/form-data">
             {% csrf_token %}
-            <input style="margin: auto" type="file" name="FILE" autocomplete="off" class="file-upload-field" required accept=".txt">
-            <input type="submit" value="Upload" class="button">
+              <label for="getFile" class="browse">Browse</label>
+              <br>
+              <input type="file" name="FILE" id="getFile" autocomplete="off"required accept=".txt" style="display:none">
+              <button type="submit" class="button">Upload</button>
           </form>
     </body>
 </html>
