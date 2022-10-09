@@ -9,26 +9,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
     <script src="https://kit.fontawesome.com/9b45bbf03c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            font-family: "Lato", sans-serif;
+            font-family: "Raleway", sans-serif;
             background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);
             background: linear-gradient(to right, #514A9D, #24C6DC);
-            font-size: 14px;
+            font-size: 15px;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        table{
+
+        table {
             background-color: white;
         }
-        thead{
+
+        thead {
             background-color: silver;
             font-weight: bold;
         }
-        table tr:hover{
+
+        table tr:hover {
             background-color: skyblue;
         }
-        table, tr, th, td{
+
+        table,
+        tr,
+        th,
+        td {
             border-bottom: 1px solid silver;
             border-collapse: collapse;
             border-left: none;
@@ -36,55 +49,60 @@
             border-top: none;
             padding: 14px 16px;
             text-align: center;
-            margin: 45px 100px 45px 300px;
-        } 
-        a:hover{
-            font-weight:bold;
         }
-        a{
+
+        a:hover {
+            font-weight: bold;
+        }
+
+        a {
             text-decoration: none;
             padding: 14px 16px;
             margin: 10px;
-            font-weight:normal;
+            font-weight: normal;
             color: black;
             border: none;
         }
-        #back{
+
+        #back {
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: white;
             font-size: 17px;
+            margin: 10px;
         }
     </style>
 </head>
 
 <body>
-    <table>
-        <thead>
-            <tr>
-                <td>Id</td>
-                <td>Filename</td>
-                <td>Created at</td>
-                <td>Download</td>
-                <td>Delete</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for f in FilesList %}
-            <tr>
-                <td>{{f.id}}</td>
-                <td>{{f.file}}</td>
-                <td>{{f.created_at}}</td>
-                <td><a href="{{f.file.url}}" download><i class="fa fa-download" aria-hidden="true" fa-2x></i></a></td>
-                <td><a href="/fileupload/delete/{{f.id}}"><i class="fa fa-trash-alt" aria-hidden="true" fa-2x></i></a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'home'%}" id="back">Back to home</a>
-    <script src="" async defer></script>
+    <div class="middle">
+        <table>
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Filename</td>
+                    <td>Created at</td>
+                    <td>Download</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for f in FilesList %}
+                <tr>
+                    <td>{{f.id}}</td>
+                    <td>{{f.file}}</td>
+                    <td>{{f.created_at}}</td>
+                    <td><a href="{{f.file.url}}" download><i class="fa fa-download" aria-hidden="true" fa-2x></i></a>
+                    </td>
+                    <td><a href="/fileupload/delete/{{f.id}}"><i class="fa fa-trash-alt" aria-hidden="true"
+                                fa-2x></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="{% url 'home'%}" class="btn btn-info" style="color: black">Back to home</a>
+        </div>
+    </div>
 </body>
 
 </html>
