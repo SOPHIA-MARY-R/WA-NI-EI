@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+{% load static %}
 
 <head>
   <title>Welcome</title>
@@ -31,40 +32,45 @@
     @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,700&family=PT+Sans&display=swap');
 
     * {
-        padding: 0;
+      padding: 0;
     }
 
     .waviy {
-        position: relative;
-        -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, .2));
-        font-size: 45px;
-        text-align: center;
-        flex-direction: row;
+      position: relative;
+      -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, .2));
+      font-size: 45px;
+      text-align: center;
+      flex-direction: row;
     }
 
     .waviy span {
-        font-family: 'Merriweather', cursive;
-        position: relative;
-        display: inline-block;
-        color: white;
-        animation: waviy 1s infinite;
-        animation-delay: calc(.1s * var(--i));
+      font-family: 'Merriweather', cursive;
+      position: relative;
+      display: inline-block;
+      color: white;
+      animation: waviy 1s infinite;
+      animation-delay: calc(.1s * var(--i));
 
     }
 
     @keyframes waviy {
 
-        0%,
-        40%,
-        100% {
-            transform: translateY(0)
-        }
+      0%,
+      40%,
+      100% {
+        transform: translateY(0)
+      }
 
-        20% {
-            transform: translateY(-20px)
-        }
+      20% {
+        transform: translateY(-20px)
+      }
     }
 
+    img {
+      border-radius: 50%;
+      height: 200px;
+      width: 200px;
+    }
   </style>
 </head>
 
@@ -72,12 +78,15 @@
 
   <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
     <div class="w3-display-middle">
+      <div class="image">
+        <img src="{% static 'Logo.jpg' %}">
+      </div>
       <!--<h1 class="w3-jumbo w3-animate-top">和に英</h1>-->
       <div class="waviy">
         <span style="--i:1">和</span>
         <span style="--i:2">に</span>
         <span style="--i:3">英</span>
-    </div>
+      </div>
       <h4 class="w3-animate-bottom" style="text-align: center">(WA NI EI)</h4>
       <hr class="w3-border-grey" style="margin:auto;width:40%">
       <br>
